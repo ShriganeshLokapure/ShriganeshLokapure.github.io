@@ -1712,7 +1712,21 @@ pre {
     -webkit-overflow-scrolling: touch; }
     .table-responsive-xl > .table-bordered {
       border: 0; } }
-
+@media (max-width: 768px) {
+        .profile-image-wrapper {
+          width: 220px;
+          height: 220px;
+          margin-top: 0;
+        }
+        .text {
+          text-align: center;
+        }
+        .social-icon {
+          width: 28px;
+          height: 28px;
+        }
+      }
+      
 .table-responsive {
   display: block;
   width: 100%;
