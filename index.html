@@ -30,6 +30,221 @@
 //--//-->   ABOUT
 ======================================*/
 
+:root {
+  --accent: #ffbd39;
+  --dark: #0b0c10;
+  --card: rgba(22, 24, 29, 0.8);
+  --glow: 0 20px 60px rgba(255, 189, 57, 0.2);
+}
+
+body {
+  background: radial-gradient(circle at 20% 20%, rgba(255, 189, 57, 0.05), transparent 35%),
+              radial-gradient(circle at 80% 10%, rgba(0, 195, 255, 0.05), transparent 30%),
+              #0a0c12;
+}
+
+.hero .overlay {
+  background: linear-gradient(135deg, rgba(10,12,18,0.9), rgba(10,12,18,0.75));
+}
+
+.home-slider .slider-item .text {
+  background: rgba(10, 12, 18, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  padding: 2.5rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #ffbd39, #ff9f1c);
+  border: none;
+  box-shadow: 0 10px 30px rgba(255, 189, 57, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 45px rgba(255, 189, 57, 0.4);
+}
+
+.btn-outline-light {
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.skill-box {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  padding: 1.2rem 0.8rem;
+}
+
+.skill-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(255, 189, 57, 0.15);
+  border-color: rgba(255, 189, 57, 0.5);
+}
+
+.resume-wrap {
+  background: var(--card);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  padding: 2rem;
+}
+
+.resume-wrap ul li {
+  color: #dfe6ee;
+}
+
+.heading-section .underline {
+  width: 90px;
+  height: 4px;
+  background: linear-gradient(135deg, #ffbd39, #ff9f1c);
+  border-radius: 999px;
+  box-shadow: var(--glow);
+}
+
+.badge-warning {
+  background: rgba(255, 189, 57, 0.15);
+  color: #ffbd39;
+  border: 1px solid rgba(255, 189, 57, 0.5);
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.blog-entry {
+  box-shadow: 0 18px 45px rgba(0,0,0,0.35);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.07);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blog-entry:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(255, 189, 57, 0.18);
+}
+
+.exp-filter {
+  border: 1px solid rgba(0, 200, 255, 0.35) !important;
+  color: #e6f7ff !important;
+  background: rgba(0, 122, 255, 0.07);
+  border-radius: 999px;
+  padding: 0.55rem 1.3rem;
+  margin: 0 0.35rem 0.6rem;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.exp-filter:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 195, 255, 0.8) !important;
+  box-shadow: 0 8px 24px rgba(0, 195, 255, 0.25);
+  background: rgba(0, 195, 255, 0.12);
+}
+
+.exp-filter.active {
+  background: linear-gradient(135deg, #00c3ff, #0077ff) !important;
+  color: #0b0c10 !important;
+  border-color: transparent !important;
+  box-shadow: 0 10px 28px rgba(0, 195, 255, 0.35);
+}
+
+#home-section .ftco-footer-social li {
+  margin-right: 10px;
+}
+
+#home-section .ftco-footer-social li:last-child {
+  margin-right: 0;
+}
+
+#home-section .ftco-footer-social li a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+#home-section .ftco-footer-social li a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(0, 195, 255, 0.25);
+  border-color: rgba(0, 195, 255, 0.5);
+  background: rgba(0, 195, 255, 0.12);
+}
+
+#home-section .social-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+#experience-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+
+#experience-cards .experience-card {
+  flex: 1 1 420px;
+  max-width: 640px;
+}
+
+.hero .text {
+  position: relative;
+  border-left: 4px solid var(--accent);
+  padding-left: 1.25rem;
+}
+
+.hero .text:before {
+  content: "";
+  position: absolute;
+  left: -14px;
+  top: 12px;
+  height: 40px;
+  width: 4px;
+  background: linear-gradient(180deg, rgba(255,189,57,0.9), rgba(255,189,57,0));
+  filter: drop-shadow(0 0 12px rgba(255, 189, 57, 0.5));
+}
+
+.hero .subheading {
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffbd39;
+}
+
+.profile-image-wrapper {
+  background: linear-gradient(135deg, rgba(255, 189, 57, 0.25), rgba(0, 195, 255, 0.12));
+  padding: 12px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.45), 0 0 25px rgba(255, 189, 57, 0.25);
+}
+
+.profile-image {
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: 0 14px 45px rgba(0,0,0,0.35);
+}
+
 .about-mf .box-shadow-full {
   padding-top: 4rem;
   padding-bottom: 4rem;
@@ -154,6 +369,7 @@
 		          	<div class="text">
 		          		<span class="subheading">Hi There!</span>
 			            <h1 class="mb-4 mt-3">I'm <span>Shriganesh</span></h1>
+						<h2 class="mb-3 text-light">Bellevue, WA</h2>
 
 						<!-- Element to contain animated typing -->
 						<span id="typing-animation"></span>
@@ -196,7 +412,9 @@
 			            <!-- <h2>A Senior Data Analyst</h2> -->
 						<!-- <h2 class="d-flex" style="margin-bottom: 0">With over 5 years of experience</h2> -->
 						<!-- <br> -->
-			            <p><a href="https://drive.google.com/file/d/10MQCGBClPLcqB3tlF0C9UAdwaMgScfpd/view?usp=drive_link" class="btn btn-primary py-3 px-4">Download CV</a> 
+			            <p>
+							<a href="https://drive.google.com/file/d/1Dh0tKKQjhggXYbbMJ4dphAwiFilVxvn2/view?usp=drive_link" class="btn btn-primary py-3 px-4 mr-2">Download CV</a>
+							<a href="#contact-section" class="btn btn-outline-light py-3 px-4">Contact</a>
 						</p>
 						<div class="mt-4">
 							<ul class="ftco-footer-social list-unstyled d-flex justify-content-start align-items-center mb-0">  
@@ -245,11 +463,6 @@
 			</div>
 		  </div>
 		  <div class="row justify-content-center text-center">
-			<!-- Programming Languages -->
-			<div class="col-md-2 col-4 mb-4 skill-box">
-			  <img src="images/skills/javascript.svg"class="img-fluid" alt="JavaScript">
-			  <p>JavaScript</p>
-			</div>
 			<div class="col-md-2 col-4 mb-4 skill-box">
 			  <img src="images/skills/python.svg" class="img-fluid" alt="Python">
 			  <p>Python</p>
@@ -262,22 +475,10 @@
 			  <img src="images/skills/csharp.svg" class="img-fluid" alt="C#">
 			  <p>C#</p>
 			</div>
-		  
-			<!-- Web Frameworks & Libraries -->
 			<div class="col-md-2 col-4 mb-4 skill-box">
-			  <img src="images/skills/react.svg" class="img-fluid" alt="React">
-			  <p>React</p>
+			  <img src="images/skills/javascript.svg" class="img-fluid" alt="JavaScript">
+			  <p>JavaScript</p>
 			</div>
-			<div class="col-md-2 col-4 mb-4 skill-box">
-			  <img src="images/skills/html5.svg" class="img-fluid" alt="HTML5">
-			  <p>HTML5</p>
-			</div>
-			<div class="col-md-2 col-4 mb-4 skill-box">
-			  <img src="images/skills/css3.svg" class="img-fluid" alt="CSS3">
-			  <p>CSS3</p>
-			</div>
-		  
-			<!-- Databases -->
 			<div class="col-md-2 col-4 mb-4 skill-box">
 			  <img src="images/skills/mongodb.svg" class="img-fluid" alt="MongoDB">
 			  <p>MongoDB</p>
@@ -286,8 +487,6 @@
 			  <img src="images/skills/postgresql.svg" class="img-fluid" alt="PostgreSQL">
 			  <p>PostgreSQL</p>
 			</div>
-		  
-			<!-- DevOps & Backend -->
 			<div class="col-md-2 col-4 mb-4 skill-box">
 			  <img src="images/skills/aws.png" class="img-fluid" alt="AWS">
 			  <p>AWS</p>
@@ -304,8 +503,6 @@
 			  <img src="images/skills/icons8-apache-kafka-128.svg" class="img-fluid" alt="Apache Kafka">
 			  <p>Apache Kafka</p>
 			</div>
-		  
-			<!-- Tools -->
 			<div class="col-md-2 col-4 mb-4 skill-box">
 			  <img src="images/skills/git.svg" class="img-fluid" alt="Git">
 			  <p>Git</p>
@@ -319,38 +516,8 @@
 			  <p>Postman</p>
 			</div>
 			<div class="col-md-2 col-4 mb-4 skill-box">
-			  <img src="images/skills/Visual Studio Code (VS Code).svg" class="img-fluid" alt="VS Code">
-			  <p>VS Code</p>
-			</div>
-		  
-			<!-- Operating Systems -->
-			<div class="col-md-2 col-4 mb-4 skill-box">
 			  <img src="images/skills/linux.svg" class="img-fluid" alt="Linux">
 			  <p>Linux</p>
-			</div>
-			<div class="col-md-2 col-4 mb-4 skill-box">
-			  <img src="images/skills/windows.svg" class="img-fluid" alt="Windows">
-			  <p>Windows</p>
-			</div>
-		  
-			<!-- ML & Visualization -->
-			<div class="col-md-2 col-4 mb-4 skill-box">
-			  <img src="images/skills/pytorch.svg" class="img-fluid" alt="PyTorch">
-			  <p>PyTorch</p>
-			</div>
-			<div class="col-md-2 col-4 mb-4 skill-box">
-			  <img src="images/skills/anaconda.svg" class="img-fluid" alt="Anaconda">
-			  <p>Anaconda</p>
-			</div>
-		  
-			<!-- Design & Communication -->
-			<div class="col-md-2 col-4 mb-4 skill-box">
-			  <img src="images/skills/figma.svg" class="img-fluid" alt="Figma">
-			  <p>Figma</p>
-			</div>
-			<div class="col-md-2 col-4 mb-4 skill-box">
-			  <img src="images/skills/slack.svg" class="img-fluid" alt="Slack">
-			  <p>Slack</p>
 			</div>
 		  </div>
 	 </div>
@@ -412,42 +579,70 @@
         </div>
 	</br>
 		
-		<div class="row">
-				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate skill-box">
-						<span class="date">Software Engineer Intern</span>
-						<h2>Reality AI Lab</h2>
-						<span class="position">May 2024 - September 2024</span>
-						<p class="mt-4">AI solutions for real-time data analysis in industries like automotive and automation.
-							<ul>
-								<li>Developed a clinical web app using React, Flask, and MongoDB, reducing data entry time by 25% for 100+ records.</li>
-								<li>Designed Agile-based clinical tools to boost compliance by 75 patients/day and mitigate 15+ monthly adverse events through secure workflows and HIPAA-compliant practices.</li>
-								<li>Built a 98% accurate Python-Flask validation system to standardize workflows for 20+ healthcare professionals.</li>
-								<li>Delivered actionable analytics via Flask and D3.js dashboards, driving 40% improvement in decision-making.</li>
-							</ul>
-						</p>
-					</div>
-
-				</div>
-
-				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate skill-box">
-						<span class="date">Full Stack Engineering Analyst</span>
-						<h2>Accenture</h2>
-						<span class="position">August 2021 - July 2023</span>
-						<p class="mt-4">Global consulting firm offering digital transformation and business growth solutions.
-							<ul>
-								<li>Engineered commercial auto insurance applications using C#, Duck Creek, ASP.NET Core, and Entity Frameworks on Azure Cloud, processing 10K+ daily transactions.</li>
-								<li>Developed and deployed RESTful APIs with JSON/XML to support real-time client-server interactions for 5K+ concurrent users.</li>
-								<li>Resolved 50+ critical defects using Root Cause Analysis and Trace Monitor, improving application reliability and reducing production disruptions by 20%.</li>
-								<li>Designed relational data models in SQL Server with ER diagrams and T-SQL optimizations for high-performance query execution.</li>
-								<li>Led legacy code refactoring with CI/CD pipelines, 200+ unit/integration tests, and code reviews to enhance scalability and reduce bugs.</li>
-							</ul>
-						</p>
-					</div>
-
+		<div class="row mb-4">
+			<div class="col-12 text-center">
+				<div class="btn-group" role="group" aria-label="Experience filter">
+					<button class="btn btn-outline-light exp-filter active" data-filter="Saayam For All">Saayam For All</button>
+					<button class="btn btn-outline-light exp-filter" data-filter="Reality AI Lab">Reality AI Lab</button>
+					<button class="btn btn-outline-light exp-filter" data-filter="Accenture">Accenture</button>
 				</div>
 			</div>
+		</div>
+
+		<div class="row" id="experience-cards">
+			<div class="col-md-6 experience-card" data-company="Saayam For All">
+				<div class="resume-wrap ftco-animate skill-box">
+					<span class="date">Software Engineer</span>
+					<h2>Saayam For All</h2>
+					<span class="position d-block">San Jose, CA (Remote)</span>
+					<span class="position d-block">July 2025 - Present</span>
+					<p class="mt-4">
+						<strong>Building reliable services for a distributed platform</strong>
+						<ul>
+							<li>Designed backend services and APIs using Python, Java, and FastAPI, improving response efficiency by 30%.</li>
+							<li>Coordinated with distributed contributors to design features, review code, and automate CI/CD workflows, reducing integration issues by 40% and speeding up releases across the platform.</li>
+						</ul>
+					</p>
+				</div>
+			</div>
+
+			<div class="col-md-6 experience-card" data-company="Reality AI Lab" style="display:none;">
+				<div class="resume-wrap ftco-animate skill-box">
+					<span class="date">Software Engineer Intern</span>
+					<h2>Reality AI Lab</h2>
+					<span class="position d-block">New York, NY (Remote)</span>
+					<span class="position d-block">May 2024 - September 2024</span>
+					<p class="mt-4">
+						<strong>AI solutions for real-time clinical analytics</strong>
+						<ul>
+							<li>Constructed Python FastAPI and Flask microservices for a HIPAA-compliant platform, cutting backend latency by 25%, handling 100+ patient records/day, and improving system reliability for clinical teams.</li>
+							<li>Formulated a validation pipeline with 98% accuracy for 1M+ JSON records/day, improving API data integrity.</li>
+							<li>Refined backend logic for real-time compliance tracking, raising throughput to 75+ events/day, reducing monthly data errors by 15 cases, and improving clinical decision accuracy.</li>
+							<li>Deployed API-driven dashboards using Flask and optimized SQL queries, reducing data retrieval latency by 40%.</li>
+						</ul>
+					</p>
+				</div>
+			</div>
+
+			<div class="col-md-6 experience-card" data-company="Accenture" style="display:none;">
+				<div class="resume-wrap ftco-animate skill-box">
+					<span class="date">Full Stack Engineering Analyst</span>
+					<h2>Accenture</h2>
+					<span class="position d-block">Pune, India</span>
+					<span class="position d-block">August 2021 - July 2023</span>
+					<p class="mt-4">
+						<strong>Scaling cloud microservices for insurance platforms</strong>
+						<ul>
+							<li>Orchestrated and maintained Java Spring Boot microservices on Azure, reliably processing 10,000+ transactions/day and powering core insurance workflows across the client platform.</li>
+							<li>Enhanced policy and claims handling for 5,000+ users by automating REST APIs and optimizing backend data flows.</li>
+							<li>Revamped SQL Server queries and stored procedures, increasing throughput and reducing API latency by 35%, and designed normalized schemas that improved system stability by 20%.</li>
+							<li>Resolved 50+ production incidents through RCA and debugging, improving reliability and reducing repeat failures.</li>
+							<li>Accelerated service quality and deployment speed by engineering 200+ JUnit tests, implementing CI/CD pipelines, and refactoring legacy components into modular Java microservices, reducing release cycles by 30%.</li>
+						</ul>
+					</p>
+				</div>
+			</div>
+		</div>
 
 		<br>
 		<br>
@@ -553,7 +748,7 @@
         </div>
       </div>
 	
-	  <div class="ftco-section ftco-hireme img margin-top" style="background-image: url(images/bg_1.jpeg)">
+	  <div class="ftco-section ftco-hireme img margin-top" style="background-image: linear-gradient(135deg, rgba(0, 20, 40, 0.85), rgba(0, 65, 110, 0.78)), url(images/bg_1.jpeg); background-size: cover; background-position: center; box-shadow: 0 20px 60px rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.06);">
 			<!-- <div class="container"> -->
 				<div class="row justify-content-center">
 					<div class="col-md-7 ftco-animate text-center">
@@ -588,7 +783,7 @@
           			<span class="icon-map-signs"></span>
           		</div>
           		<h3 class="mb-4">Address</h3>
-	            <p>New York, United States</p>
+	            <p>Bellevue, WA</p>
 	          </div>
           </div>
           <div class="col-md-6 col-lg-3 d-flex ftco-animate">
@@ -615,7 +810,7 @@
           			<span class="icon-globe"></span>
           		</div>
           		<h3 class="mb-4">Download Resume</h3>
-	            <p><a href="https://drive.google.com/file/d/10MQCGBClPLcqB3tlF0C9UAdwaMgScfpd/view?usp=drive_link">resumelink</a></p>
+	            <p><a href="https://drive.google.com/file/d/1Dh0tKKQjhggXYbbMJ4dphAwiFilVxvn2/view?usp=drive_link">resumelink</a></p>
 	          </div>
           </div>
 
@@ -692,6 +887,24 @@
   <script src="js/jquery.animateNumber.min.js"></script>
   <script src="js/scrollax.min.js"></script>
   
+  <script>
+    // Experience filter buttons
+    document.addEventListener('DOMContentLoaded', () => {
+      const buttons = document.querySelectorAll('.exp-filter');
+      const cards = document.querySelectorAll('.experience-card');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          buttons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.dataset.filter;
+          cards.forEach(card => {
+            card.style.display = card.dataset.company === filter ? '' : 'none';
+          });
+        });
+      });
+    });
+  </script>
+
   <script src="js/main.js"></script>
     
   </body>
