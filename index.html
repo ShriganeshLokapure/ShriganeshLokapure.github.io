@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Shriganesh Lokapure Portfolio</title>
+    <title>Shriganesh Lokapure | Software Engineer</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <meta name="description" content="Shriganesh Lokapure — Software Engineer building scalable backend systems, cloud platforms, and full-stack products at Capital One, Accenture, and Vision Infotech.">
+    <meta name="theme-color" content="#0a0c12">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
@@ -31,16 +34,105 @@
 ======================================*/
 
 :root {
-  --accent: #ffbd39;
+  --accent-light: #7dd3fc;
+  --accent: #00c3ff;
+  --accent-dark: #0077cc;
+  --accent-rgb: 0, 195, 255;
+  --accent-dark-rgb: 0, 119, 204;
   --dark: #0b0c10;
-  --card: rgba(22, 24, 29, 0.8);
-  --glow: 0 20px 60px rgba(255, 189, 57, 0.2);
+  --bg: #06080f;
+  --bg-elevated: #0d1118;
+  --card: rgba(14, 18, 28, 0.85);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --text-muted: #8b9cb3;
+  --text-body: #d8e2ef;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --glow: 0 20px 60px rgba(var(--accent-rgb), 0.22);
+  --radius-lg: 20px;
+  --nav-height: 72px;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: radial-gradient(circle at 20% 20%, rgba(255, 189, 57, 0.05), transparent 35%),
-              radial-gradient(circle at 80% 10%, rgba(0, 195, 255, 0.05), transparent 30%),
-              #0a0c12;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text-body);
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(var(--accent-rgb), 0.15), transparent),
+    radial-gradient(circle at 85% 15%, rgba(var(--accent-rgb), 0.08), transparent 40%),
+    radial-gradient(circle at 10% 90%, rgba(var(--accent-dark-rgb), 0.1), transparent 45%),
+    var(--bg);
+  pointer-events: none;
+}
+
+.mesh-grid {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 20%, transparent 75%);
+  pointer-events: none;
+}
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent-dark), var(--accent-light));
+  z-index: 10000;
+  box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.6);
+  transition: width 0.1s ease-out;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  border: 1px solid rgba(var(--accent-rgb), 0.4);
+  background: rgba(14, 18, 28, 0.9);
+  color: var(--accent-light);
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.25s, visibility 0.25s, transform 0.25s, box-shadow 0.25s;
+  z-index: 9999;
+  backdrop-filter: blur(12px);
+  text-decoration: none;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  box-shadow: 0 8px 28px rgba(var(--accent-rgb), 0.35);
+  color: #fff;
 }
 
 .hero .overlay {
@@ -57,15 +149,15 @@ body {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #ffbd39, #ff9f1c);
+  background: linear-gradient(135deg, var(--accent-light), var(--accent-dark));
   border: none;
-  box-shadow: 0 10px 30px rgba(255, 189, 57, 0.35);
+  box-shadow: 0 10px 30px rgba(var(--accent-rgb), 0.35);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 15px 45px rgba(255, 189, 57, 0.4);
+  box-shadow: 0 15px 45px rgba(var(--accent-rgb), 0.4);
 }
 
 .btn-outline-light {
@@ -91,8 +183,8 @@ body {
 
 .skill-box:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 45px rgba(255, 189, 57, 0.15);
-  border-color: rgba(255, 189, 57, 0.5);
+  box-shadow: 0 20px 45px rgba(var(--accent-rgb), 0.15);
+  border-color: rgba(var(--accent-rgb), 0.5);
 }
 
 .resume-wrap {
@@ -104,21 +196,21 @@ body {
 }
 
 .resume-wrap ul li {
-  color: #dfe6ee;
+  color: var(--text-body);
 }
 
 .heading-section .underline {
   width: 90px;
   height: 4px;
-  background: linear-gradient(135deg, #ffbd39, #ff9f1c);
+  background: linear-gradient(135deg, var(--accent-light), var(--accent-dark));
   border-radius: 999px;
   box-shadow: var(--glow);
 }
 
 .badge-warning {
-  background: rgba(255, 189, 57, 0.15);
-  color: #ffbd39;
-  border: 1px solid rgba(255, 189, 57, 0.5);
+  background: rgba(var(--accent-rgb), 0.15);
+  color: var(--accent);
+  border: 1px solid rgba(var(--accent-rgb), 0.5);
   padding: 0.45rem 0.9rem;
   border-radius: 999px;
   font-weight: 600;
@@ -135,31 +227,37 @@ body {
 
 .blog-entry:hover {
   transform: translateY(-8px);
-  box-shadow: 0 25px 60px rgba(255, 189, 57, 0.18);
+  box-shadow: 0 25px 60px rgba(var(--accent-rgb), 0.18);
 }
 
-.exp-filter {
-  border: 1px solid rgba(0, 200, 255, 0.35) !important;
-  color: #e6f7ff !important;
-  background: rgba(0, 122, 255, 0.07);
+.exp-filter,
+.skill-filter,
+.project-filter {
+  border: 1px solid rgba(var(--accent-rgb), 0.4) !important;
+  color: var(--accent-light) !important;
+  background: rgba(var(--accent-rgb), 0.1);
   border-radius: 999px;
-  padding: 0.55rem 1.3rem;
-  margin: 0 0.35rem 0.6rem;
-  transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  padding: 0.5rem 1.1rem;
+  margin: 0 0.3rem 0.55rem;
+  font-size: 0.85rem;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
-.exp-filter:hover {
+.exp-filter:hover,
+.skill-filter:hover,
+.project-filter:hover {
   transform: translateY(-2px);
-  border-color: rgba(0, 195, 255, 0.8) !important;
-  box-shadow: 0 8px 24px rgba(0, 195, 255, 0.25);
-  background: rgba(0, 195, 255, 0.12);
+  box-shadow: 0 8px 24px rgba(var(--accent-rgb), 0.2);
+  background: rgba(var(--accent-rgb), 0.14);
 }
 
-.exp-filter.active {
-  background: linear-gradient(135deg, #00c3ff, #0077ff) !important;
-  color: #0b0c10 !important;
+.exp-filter.active,
+.skill-filter.active,
+.project-filter.active {
+  background: linear-gradient(135deg, var(--accent-light), var(--accent-dark)) !important;
+  color: #fff !important;
   border-color: transparent !important;
-  box-shadow: 0 10px 28px rgba(0, 195, 255, 0.35);
+  box-shadow: 0 10px 28px rgba(var(--accent-rgb), 0.35);
 }
 
 #home-section .ftco-footer-social li {
@@ -185,9 +283,9 @@ body {
 
 #home-section .ftco-footer-social li a:hover {
   transform: translateY(-3px);
-  box-shadow: 0 16px 40px rgba(0, 195, 255, 0.25);
-  border-color: rgba(0, 195, 255, 0.5);
-  background: rgba(0, 195, 255, 0.12);
+  box-shadow: 0 16px 40px rgba(var(--accent-rgb), 0.25);
+  border-color: rgba(var(--accent-rgb), 0.5);
+  background: rgba(var(--accent-rgb), 0.12);
 }
 
 #home-section .social-icon {
@@ -196,16 +294,428 @@ body {
   object-fit: contain;
 }
 
+/* Experience section */
+.experience-intro {
+  color: var(--text-muted);
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 2.5rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.experience-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.exp-highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.exp-highlight-item:hover {
+  transform: translateY(-3px);
+  border-color: rgba(var(--accent-rgb), 0.45);
+  box-shadow: 0 10px 28px rgba(var(--accent-rgb), 0.12);
+}
+
+.exp-highlight-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--accent);
+}
+
+.exp-highlight-item:nth-child(1) .exp-highlight-dot { background: var(--accent-light); }
+.exp-highlight-item:nth-child(2) .exp-highlight-dot { background: var(--accent); }
+.exp-highlight-item:nth-child(3) .exp-highlight-dot { background: var(--accent-dark); }
+
+.exp-highlight-item span {
+  color: var(--text-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
 #experience-cards {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1.5rem;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#experience-cards .experience-col {
+  flex: 0 1 100%;
+  max-width: 800px;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#experience-cards.filtering {
   justify-content: center;
 }
 
-#experience-cards .experience-card {
-  flex: 1 1 420px;
-  max-width: 640px;
+#experience-cards.filtering .experience-col.is-hidden {
+  display: none !important;
+}
+
+#experience-cards.filtering .experience-col:not(.is-hidden) {
+  flex: 0 1 100% !important;
+  max-width: 800px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  animation: expCardFocus 0.35s ease;
+}
+
+@keyframes expCardFocus {
+  from {
+    opacity: 0.65;
+    transform: translateY(14px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.experience-card-wrap {
+  background: var(--card);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.75rem 1.5rem;
+  height: 100%;
+  border-left: 4px solid var(--accent);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+#experience-cards .experience-col:nth-child(1) .experience-card-wrap { border-left-color: var(--accent-light); }
+#experience-cards .experience-col:nth-child(1) .experience-card-icon,
+#experience-cards .experience-col:nth-child(1) .experience-card-title .date { color: var(--accent-light); }
+#experience-cards .experience-col:nth-child(2) .experience-card-wrap { border-left-color: var(--accent); }
+#experience-cards .experience-col:nth-child(2) .experience-card-icon,
+#experience-cards .experience-col:nth-child(2) .experience-card-title .date { color: var(--accent); }
+#experience-cards .experience-col:nth-child(3) .experience-card-wrap { border-left-color: var(--accent-dark); }
+#experience-cards .experience-col:nth-child(3) .experience-card-icon,
+#experience-cards .experience-col:nth-child(3) .experience-card-title .date { color: var(--accent-dark); }
+
+.experience-card-wrap:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 45px rgba(var(--accent-rgb), 0.12);
+  border-color: rgba(var(--accent-rgb), 0.35);
+}
+
+.experience-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-wrap: wrap;
+}
+
+.experience-card-icon {
+  font-size: 1.75rem;
+  color: var(--accent);
+  line-height: 1;
+  margin-top: 0.15rem;
+}
+
+.experience-card-title {
+  flex: 1;
+  min-width: 180px;
+}
+
+.experience-card-title h2 {
+  margin: 0 0 0.25rem;
+  font-size: 1.45rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.experience-card-title .date {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+.exp-period-badge {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--accent);
+  border: 1px solid rgba(var(--accent-rgb), 0.35);
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.experience-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1.25rem;
+}
+
+.exp-meta-pill {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #c8d4e0;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+
+.experience-body {
+  color: var(--text-body);
+}
+
+.experience-body ul {
+  padding-left: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.experience-body ul li {
+  margin-bottom: 0.45rem;
+  color: var(--text-body);
+}
+
+.experience-body strong {
+  color: #fff;
+}
+
+.exp-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.65rem;
+}
+
+.exp-pill {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-body);
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.exp-pill:hover {
+  background: rgba(var(--accent-rgb), 0.12);
+  border-color: rgba(var(--accent-rgb), 0.45);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* Skills section */
+.skills-intro {
+  color: var(--text-muted);
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 2.5rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.skills-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.skill-highlight-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  padding: 1rem 0.75rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.skill-highlight-item:hover {
+  transform: translateY(-5px) scale(1.03);
+  border-color: rgba(var(--accent-rgb), 0.45);
+  box-shadow: 0 12px 32px rgba(var(--accent-rgb), 0.15);
+}
+
+.skill-highlight-item img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.skill-highlight-item span {
+  font-size: 0.75rem;
+  color: #c8d4e0;
+  font-weight: 500;
+}
+
+.skill-category-card {
+  background: var(--card);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.5rem 1.35rem;
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  border-left: 4px solid var(--accent);
+}
+
+#skills-category-grid .skill-category-col:nth-child(3n+1) .skill-category-card { border-left-color: var(--accent-light); }
+#skills-category-grid .skill-category-col:nth-child(3n+1) .skill-category-icon,
+#skills-category-grid .skill-category-col:nth-child(3n+1) .skill-count { color: var(--accent-light); border-color: rgba(125, 211, 252, 0.4); }
+#skills-category-grid .skill-category-col:nth-child(3n+2) .skill-category-card { border-left-color: var(--accent); }
+#skills-category-grid .skill-category-col:nth-child(3n+2) .skill-category-icon,
+#skills-category-grid .skill-category-col:nth-child(3n+2) .skill-count { color: var(--accent); }
+#skills-category-grid .skill-category-col:nth-child(3n) .skill-category-card { border-left-color: var(--accent-dark); }
+#skills-category-grid .skill-category-col:nth-child(3n) .skill-category-icon,
+#skills-category-grid .skill-category-col:nth-child(3n) .skill-count { color: var(--accent-dark); border-color: rgba(var(--accent-dark-rgb), 0.4); }
+
+.skill-category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 45px rgba(var(--accent-rgb), 0.12);
+  border-color: rgba(var(--accent-rgb), 0.35);
+}
+
+.skill-category-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.1rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.skill-category-icon {
+  font-size: 1.6rem;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.skill-category-header h3 {
+  margin: 0;
+  flex: 1;
+  font-size: 1.1rem;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.skill-count {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--accent);
+  border: 1px solid rgba(var(--accent-rgb), 0.35);
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.skill-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.skill-pill {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-body);
+  padding: 0.38rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  cursor: default;
+}
+
+.skill-pill:hover {
+  background: rgba(var(--accent-rgb), 0.12);
+  border-color: rgba(var(--accent-rgb), 0.45);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+#skills-category-grid .skill-category-col {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#skills-category-grid.filtering {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  margin-left: 0;
+  margin-right: 0;
+  gap: 1.5rem;
+}
+
+#skills-category-grid.filtering .skill-category-col.is-hidden {
+  display: none !important;
+}
+
+#skills-category-grid.filtering .skill-category-col:not(.is-hidden) {
+  flex: 0 1 100% !important;
+  max-width: 720px !important;
+  width: 100%;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  animation: skillCardFocus 0.35s ease;
+}
+
+#skills-category-grid.filtering .skill-category-col:not(.is-hidden).ftco-animate {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+@keyframes skillCardFocus {
+  from {
+    opacity: 0.65;
+    transform: translateY(14px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (min-width: 768px) {
+  #skills-category-grid.filtering .skill-category-col:not(.is-hidden) {
+    flex: 0 1 720px !important;
+    max-width: 720px;
+  }
 }
 
 .hero .text {
@@ -221,22 +731,22 @@ body {
   top: 12px;
   height: 40px;
   width: 4px;
-  background: linear-gradient(180deg, rgba(255,189,57,0.9), rgba(255,189,57,0));
-  filter: drop-shadow(0 0 12px rgba(255, 189, 57, 0.5));
+  background: linear-gradient(180deg, rgba(var(--accent-rgb), 0.9), rgba(var(--accent-rgb), 0));
+  filter: drop-shadow(0 0 12px rgba(var(--accent-rgb), 0.5));
 }
 
 .hero .subheading {
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #ffbd39;
+  color: var(--accent);
 }
 
 .profile-image-wrapper {
-  background: linear-gradient(135deg, rgba(255, 189, 57, 0.25), rgba(0, 195, 255, 0.12));
+  background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.3), rgba(var(--accent-dark-rgb), 0.12));
   padding: 12px;
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.45), 0 0 25px rgba(255, 189, 57, 0.25);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.45), 0 0 25px rgba(var(--accent-rgb), 0.25);
 }
 
 .profile-image {
@@ -268,50 +778,263 @@ body {
 
 .skill-mf .progress .progress-bar {
   height: .7rem;
-  background-color: #ffbd39;
+  background-color: var(--accent);
 }
 
 
-/* Animation styles */
-#typing-animation {
-  position: relative;
-  font-size: 30px;
-  font-weight: bold;
-  color: rgb(255, 255, 255);
-  overflow: hidden;
-  white-space: nowrap;
-  animation: typing 3s steps(20, end) infinite;
+/* Projects section */
+.projects-intro {
+  color: var(--text-muted);
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 2.5rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
 }
 
-#typing-animation:before {
-  content: "";
-  /* position: absolute; */
-  top: 0;
-  left: 0;
-  width: 0;
+.project-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.project-highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.project-highlight-item:hover {
+  transform: translateY(-3px);
+  border-color: rgba(var(--accent-rgb), 0.45);
+  box-shadow: 0 10px 28px rgba(var(--accent-rgb), 0.12);
+}
+
+.project-highlight-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--accent);
+}
+
+.project-highlight-item:nth-child(1) .project-highlight-dot { background: var(--accent-light); }
+.project-highlight-item:nth-child(2) .project-highlight-dot { background: var(--accent); }
+.project-highlight-item:nth-child(3) .project-highlight-dot { background: var(--accent-dark); }
+
+.project-highlight-item span {
+  color: var(--text-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+#project-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1.5rem;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#project-cards .project-col {
+  flex: 0 1 100%;
+  max-width: 800px;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#project-cards.filtering {
+  justify-content: center;
+}
+
+#project-cards.filtering .project-col.is-hidden {
+  display: none !important;
+}
+
+#project-cards.filtering .project-col:not(.is-hidden) {
+  flex: 0 1 100% !important;
+  max-width: 800px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  animation: projectCardFocus 0.35s ease;
+}
+
+@keyframes projectCardFocus {
+  from {
+    opacity: 0.65;
+    transform: translateY(14px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.project-card-wrap {
+  background: var(--card);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0 0 1.75rem;
   height: 100%;
-  background-color: #ccc;
-  animation: typing-cursor 0.5s ease-in-out infinite;
+  overflow: hidden;
+  border-left: 4px solid var(--accent);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
+.project-card-wrap:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 45px rgba(var(--accent-rgb), 0.12);
+  border-color: rgba(var(--accent-rgb), 0.35);
 }
 
-@keyframes typing-cursor {
-  from {
-    width: 5px;
-  }
-  to {
-    width: 0;
-  }
+#project-cards .project-col:nth-child(1) .project-card-wrap { border-left-color: var(--accent-light); }
+#project-cards .project-col:nth-child(1) .project-card-icon,
+#project-cards .project-col:nth-child(1) .project-category { color: var(--accent-light); }
+#project-cards .project-col:nth-child(2) .project-card-wrap { border-left-color: var(--accent); }
+#project-cards .project-col:nth-child(2) .project-card-icon,
+#project-cards .project-col:nth-child(2) .project-category { color: var(--accent); }
+#project-cards .project-col:nth-child(3) .project-card-wrap { border-left-color: var(--accent-dark); }
+#project-cards .project-col:nth-child(3) .project-card-icon,
+#project-cards .project-col:nth-child(3) .project-category { color: var(--accent-dark); }
+
+.project-thumb {
+  display: block;
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s ease;
 }
 
+.project-card-wrap:hover .project-thumb {
+  transform: scale(1.03);
+}
+
+.project-card-inner {
+  padding: 1.35rem 1.5rem 0;
+}
+
+.project-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-wrap: wrap;
+}
+
+.project-card-icon {
+  font-size: 1.75rem;
+  color: var(--accent);
+  line-height: 1;
+  margin-top: 0.15rem;
+}
+
+.project-card-title {
+  flex: 1;
+  min-width: 180px;
+}
+
+.project-card-title h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.project-card-title h3 a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.project-card-title h3 a:hover {
+  color: var(--accent-light);
+}
+
+.project-category {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.88rem;
+  letter-spacing: 0.3px;
+}
+
+.project-badge {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--accent-light);
+  border: 1px solid rgba(var(--accent-rgb), 0.35);
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.project-body {
+  color: var(--text-body);
+}
+
+.project-body p {
+  margin-bottom: 1rem;
+}
+
+.project-body ul {
+  padding-left: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.project-body ul li {
+  margin-bottom: 0.45rem;
+  color: var(--text-body);
+}
+
+.project-body strong {
+  color: #fff;
+}
+
+.project-github-btn {
+  margin-top: 0.5rem;
+}
+
+.projects-cta {
+  margin-top: 3rem;
+  padding: 2rem;
+  text-align: center;
+  background: var(--card);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 4px solid var(--accent);
+}
+
+.projects-cta h3 {
+  color: #fff;
+  font-size: 1.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.projects-cta h3 span {
+  color: var(--accent-light);
+}
+
+.projects-cta p {
+  color: var(--text-muted);
+  max-width: 560px;
+  margin: 0 auto 1.25rem;
+}
 
 /* project image zoom effect */
 
@@ -324,17 +1047,447 @@ body {
   transform: scale(1.1);
 }
 
+/* Global theme — blue accent shades + dark (whole site) */
+.ftco-navbar-light .navbar-brand,
+.ftco-navbar-light.scrolled .navbar-brand {
+  color: var(--accent) !important;
+}
+
+.ftco-navbar-light .navbar-nav > .nav-item > .nav-link:hover,
+.ftco-navbar-light .navbar-nav > .nav-item.active > a,
+.ftco-navbar-light.scrolled .nav-item.active > a {
+  color: var(--accent) !important;
+}
+
+.ftco-navbar-light.scrolled .nav-item.cta > a,
+.ftco-navbar-light .navbar-nav > .nav-item.cta > a {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: var(--dark) !important;
+}
+
+.hero h1 span,
+.resume-wrap .date,
+.heading-section h2 span {
+  color: var(--accent) !important;
+}
+
+.blog-entry .heading a:hover {
+  color: var(--accent) !important;
+}
+
+.ftco-footer-social a:hover {
+  color: var(--accent) !important;
+}
+
+#contact-section .box h3,
+#contact-section .icon span {
+  color: var(--accent) !important;
+}
+
+.hireme-section {
+  background-image: linear-gradient(135deg, rgba(11, 12, 16, 0.92), rgba(var(--accent-dark-rgb), 0.35)), url(images/bg_1.jpeg) !important;
+  background-size: cover !important;
+  background-position: center !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+#ftco-loader .path {
+  stroke: var(--accent) !important;
+}
+
+/* Override template default accents from style.css */
+.ftco-navbar-light .navbar-nav > .nav-item .nav-link.active,
+.ftco-navbar-light .navbar-nav > .nav-item > .nav-link:hover,
+.ftco-navbar-light.scrolled .navbar-nav > .nav-item.active > a,
+.ftco-navbar-light.scrolled .navbar-nav > .nav-item > .nav-link.active {
+  color: var(--accent) !important;
+}
+
+.ftco-navbar-light .navbar-nav > .nav-item.cta > a,
+.ftco-navbar-light .navbar-nav > .nav-item.cta > a:hover,
+.ftco-navbar-light.scrolled .nav-item.cta > a {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: var(--dark) !important;
+}
+
+.ftco-navbar-light .navbar-nav > .nav-item > .nav-link span:before {
+  background: var(--accent) !important;
+}
+
+.contact-section .box .icon span {
+  color: var(--accent) !important;
+}
+
+.contact-section .contact-info p a:hover {
+  color: var(--accent) !important;
+}
+
+.contact-info .icon:hover {
+  background: rgba(var(--accent-rgb), 0.15) !important;
+}
+
+#contact-section .ftco-footer-social li a:hover,
+#home-section .ftco-footer-social li a:hover {
+  border-color: rgba(var(--accent-rgb), 0.5) !important;
+  background: rgba(var(--accent-rgb), 0.12) !important;
+  box-shadow: 0 12px 30px rgba(var(--accent-rgb), 0.2) !important;
+}
+
+/* ——— Professional developer portfolio layer ——— */
+.ftco_navbar {
+  backdrop-filter: blur(16px) saturate(1.2);
+  background: rgba(6, 8, 15, 0.75) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 0.6rem !important;
+  padding-bottom: 0.6rem !important;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.ftco_navbar.scrolled {
+  background: rgba(6, 8, 15, 0.92) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-brand {
+  font-weight: 800 !important;
+  font-size: 1.05rem !important;
+  letter-spacing: -0.02em;
+}
+
+.navbar-brand .brand-dot {
+  color: var(--accent);
+}
+
+.nav-cta-btn {
+  margin-left: 0.75rem;
+  padding: 0.5rem 1.15rem !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  font-size: 0.85rem !important;
+}
+
+#home-section.hero-pro {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: calc(var(--nav-height) + 2rem) 0 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+#home-section .overlay {
+  background: transparent;
+}
+
+.hero-glow-orb {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--accent-rgb), 0.2), transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.hero-glow-orb.orb-1 { top: 10%; right: 5%; }
+.hero-glow-orb.orb-2 { bottom: 15%; left: -5%; opacity: 0.6; }
+
+.hero-content-panel {
+  background: rgba(10, 14, 24, 0.65);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2.25rem;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  position: relative;
+}
+
+.hero-content-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(var(--accent-rgb), 0.5), transparent);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(var(--accent-rgb), 0.1);
+  border: 1px solid rgba(var(--accent-rgb), 0.35);
+  color: var(--accent-light);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin-bottom: 1.25rem;
+}
+
+.hero-badge .pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulseDot 2s ease infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0.5); }
+  50% { opacity: 0.85; box-shadow: 0 0 0 6px rgba(var(--accent-rgb), 0); }
+}
+
+.hero-pro h1 {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.hero-pro h1 .gradient-name {
+  background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 50%, var(--accent-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-pro .hero-location {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+#typing-animation {
+  font-family: var(--font-mono);
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  font-weight: 500;
+  color: var(--accent-light);
+  min-height: 2rem;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+#typing-animation::after {
+  content: '|';
+  animation: blink 1s step-end infinite;
+  color: var(--accent);
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.hero-stat strong {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.hero-stat span {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-glow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.btn-glow:hover::after {
+  transform: translateX(100%);
+}
+
+.profile-frame {
+  position: relative;
+  padding: 14px;
+  border-radius: 24px;
+  background: linear-gradient(145deg, rgba(var(--accent-rgb), 0.25), rgba(var(--accent-dark-rgb), 0.08));
+  border: 1px solid rgba(var(--accent-rgb), 0.25);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), 0 0 60px rgba(var(--accent-rgb), 0.12);
+}
+
+.profile-frame::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 26px;
+  padding: 2px;
+  background: linear-gradient(135deg, var(--accent-light), var(--accent-dark));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.profile-image {
+  border-radius: 16px;
+  width: 100%;
+  max-width: 340px;
+  display: block;
+}
+
+.section-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.65rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  background: rgba(var(--accent-rgb), 0.08);
+  border: 1px solid rgba(var(--accent-rgb), 0.2);
+}
+
+.heading-section h1.big.big-2 {
+  opacity: 0.04;
+  font-weight: 800;
+}
+
+.heading-section h2 {
+  font-weight: 800 !important;
+  letter-spacing: -0.02em;
+  color: #fff !important;
+}
+
+.pro-section {
+  position: relative;
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important;
+}
+
+.pro-section-alt {
+  background: rgba(255, 255, 255, 0.015);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.experience-card-wrap,
+.skill-category-card,
+.project-card-wrap,
+.projects-cta,
+.skill-highlight-item,
+.exp-highlight-item,
+.project-highlight-item {
+  backdrop-filter: blur(8px);
+  background: var(--card);
+  border-color: var(--card-border);
+}
+
+.site-footer-pro {
+  padding: 2.5rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(6, 8, 15, 0.95);
+}
+
+.site-footer-pro .footer-brand {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 0.35rem;
+}
+
+.site-footer-pro .footer-tagline {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+.site-footer-pro .footer-links a {
+  color: var(--text-muted);
+  margin: 0 0.75rem;
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.site-footer-pro .footer-links a:hover {
+  color: var(--accent-light);
+}
+
+.contact-section .box {
+  background: var(--card) !important;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg) !important;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.contact-section .box:hover {
+  transform: translateY(-4px);
+  border-color: rgba(var(--accent-rgb), 0.35) !important;
+  box-shadow: 0 16px 40px rgba(var(--accent-rgb), 0.1);
+}
+
+#ftco-loader {
+  transition: opacity 0.4s ease;
+}
+
+@media (max-width: 767px) {
+  .hero-stats { gap: 1rem; }
+  .hero-stat strong { font-size: 1.25rem; }
+  .nav-cta-btn { margin: 0.75rem 0 0; display: inline-block; }
+  .hero-content-panel { padding: 1.75rem 1.25rem; }
+}
+
 
 </style>
 
 
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-	  
-	  
+    <div class="mesh-grid" aria-hidden="true"></div>
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+    <a href="#home-section" class="back-to-top" id="back-to-top" aria-label="Back to top">↑</a>
+
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Shriganesh Lokapure</a>
+	      <a class="navbar-brand" href="index.html">Shriganesh<span class="brand-dot">.</span></a>
 	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -346,7 +1499,8 @@ body {
 			  <li class="nav-item"><a href="#education-section" class="nav-link"><span>Education</span></a></li>
 			  <li class="nav-item"><a href="#experience-section" class="nav-link"><span>Experience</span></a></li>
 			  <li class="nav-item"><a href="#project-section" class="nav-link"><span>Projects</span></a></li>
-			  <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact Me</span></a></li>
+			  <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
+			  <li class="nav-item"><a href="#contact-section" class="btn btn-primary nav-cta-btn py-2 px-3">Let's Talk</a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -357,178 +1511,309 @@ body {
 
 
 	  
-	  <section id="home-section" class="hero">
-		  <div class="home-slider  owl-carousel">
-	       <div class="slider-item ">
-	      	<div class="overlay"></div>
-	         <div class="container">
-	          				
-				<div class="row d-md-flex no-gutters slider-text align-items-center min-vh-100 justify-content-end" data-scrollax-parent="true">
-
-		          <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-		          	<div class="text">
-		          		<span class="subheading">Hi There!</span>
-			            <h1 class="mb-4 mt-3">I'm <span>Shriganesh</span></h1>
-						<h2 class="mb-3 text-light">Bellevue, WA</h2>
-
-						<!-- Element to contain animated typing -->
+	  <section id="home-section" class="hero hero-pro">
+		<div class="hero-glow-orb orb-1" aria-hidden="true"></div>
+		<div class="hero-glow-orb orb-2" aria-hidden="true"></div>
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-7 mb-5 mb-lg-0">
+					<div class="hero-content-panel">
+						<div class="hero-badge">
+							<span class="pulse-dot"></span>
+							Open to new opportunities
+						</div>
+						<p class="subheading mb-2" style="color: var(--text-muted); font-weight: 500;">Hi, I'm</p>
+						<h1 class="mb-2">Shriganesh <span class="gradient-name">Lokapure</span></h1>
+						<p class="hero-location">Software Engineer · Bellevue, WA</p>
 						<span id="typing-animation"></span>
-
-						<script>
-
-						// Initialize the typing animation
-						const typingAnimationElement = document.getElementById('typing-animation');
-
-						// Create an array of typing text
-						const typingTexts = [
-						'Full Stack Developer    ',
-						'Software Developer    ',
-						'Backend Developer     ',
-						];
-
-						// Create a function to display the typing animation for a given text
-						function playTypingAnimation(text) {
-						// Loop through each character and add it to the element
-						for (let i = 0; i < text.length; i++) {
-							setTimeout(() => {
-							typingAnimationElement.textContent += text[i];
-							}, i * 200); // Increase the delay to slow down the typing animation
-						}
-
-						// Once the animation is complete, reset the text and start over
-						setTimeout(() => {
-							typingAnimationElement.textContent = '';
-							playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
-						}, text.length * 200);
-						}
-
-						// Start the typing animation loop
-						playTypingAnimation(typingTexts[0]);
-
-						</script>
-							
-						<br>
-						<br>
-			            <!-- <h2>A Senior Data Analyst</h2> -->
-						<!-- <h2 class="d-flex" style="margin-bottom: 0">With over 5 years of experience</h2> -->
-						<!-- <br> -->
-			            <p>
-							<a href="https://drive.google.com/file/d/1Dh0tKKQjhggXYbbMJ4dphAwiFilVxvn2/view?usp=drive_link" class="btn btn-primary py-3 px-4 mr-2">Download CV</a>
-							<a href="#contact-section" class="btn btn-outline-light py-3 px-4">Contact</a>
-						</p>
+						<div class="hero-stats">
+							<div class="hero-stat"><strong>4+</strong><span>Years building</span></div>
+							<div class="hero-stat"><strong>3</strong><span>Companies</span></div>
+							<div class="hero-stat"><strong>1M+</strong><span>Daily scale</span></div>
+						</div>
+						<div class="hero-actions">
+							<a href="https://drive.google.com/file/d/1Dh0tKKQjhggXYbbMJ4dphAwiFilVxvn2/view?usp=drive_link" class="btn btn-primary btn-glow py-3 px-4">Download CV</a>
+							<a href="#project-section" class="btn btn-outline-light py-3 px-4">View Projects</a>
+						</div>
 						<div class="mt-4">
-							<ul class="ftco-footer-social list-unstyled d-flex justify-content-start align-items-center mb-0">  
-							  <li class="me-3">
-								<a href="https://leetcode.com/u/ShriGanesh2409/" target="_blank" aria-label="LeetCode">
-								  <img src="images/skills/leetcode.png" alt="LeetCode" class="social-icon" />
-								</a>
-							  </li>
-						  
-							  <li class="me-3">
-								<a href="https://www.linkedin.com/in/shriganeshlokapure/" target="_blank" aria-label="LinkedIn">
-								  <img src="images/skills/linkedin.png" alt="LinkedIn" class="social-icon" />
-								</a>
-							  </li>
-						  
-							  <li class="me-3">
-								<a href="https://github.com/ShriganeshLokapure" target="_blank" aria-label="GitHub">
-								  <img src="images/skills/github.svg" alt="GitHub" class="social-icon" />
-								</a>
-							  </li>
+							<ul class="ftco-footer-social list-unstyled d-flex justify-content-start align-items-center mb-0">
+								<li class="me-3"><a href="https://leetcode.com/u/ShriGanesh2409/" target="_blank" rel="noopener" aria-label="LeetCode"><img src="images/skills/leetcode.png" alt="LeetCode" class="social-icon" /></a></li>
+								<li class="me-3"><a href="https://www.linkedin.com/in/shriganeshlokapure/" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="images/skills/linkedin.png" alt="LinkedIn" class="social-icon" /></a></li>
+								<li class="me-3"><a href="https://github.com/ShriganeshLokapure" target="_blank" rel="noopener" aria-label="GitHub"><img src="images/skills/github.svg" alt="GitHub" class="social-icon" /></a></li>
 							</ul>
-						  </div>
-		            </div>
-				</div>
-					<div class="col-md-5 d-flex justify-content-center align-items-center">
-						<div class="profile-image-wrapper">
-						  <img src="images/Linkedin profile.jpg" alt="Profile" class="profile-image">
 						</div>
 					</div>
-		          </div>
-	        	</div>
-	      </div>
+				</div>
+				<div class="col-lg-5 d-flex justify-content-center">
+					<div class="profile-frame">
+						<img src="images/Linkedin profile.jpg" alt="Shriganesh Lokapure" class="profile-image">
+					</div>
+				</div>
+			</div>
 		</div>
     </section>
 
 
-    <section class="ftco-section contact-section ftco-no-pb" id="skills-section">
+    <section class="ftco-section contact-section ftco-no-pb pro-section" id="skills-section">
 		<div class="container">
-			<div class="row justify-content-center mb-5 pb-3">
-			<div class="col-md-7 heading-section text-center ftco-animate">
+			<div class="row justify-content-center mb-4 pb-2">
+			<div class="col-md-10 heading-section text-center ftco-animate">
 			  <h1 class="big big-2">Skills</h1>
+			  <span class="section-tag">Expertise</span>
 			  <h2 class="mb-4">Skills</h2>
 			  <br>
 			  <div class="underline"></div>
-			  <!-- <p>Below are the details to reach out to me!</p> -->
+			  <p class="skills-intro ftco-animate mt-4">
+				Full-stack engineering across backend systems, cloud platforms, data pipelines, and AI integration — built through production work at Capital One, Accenture, and Vision Infotech.
+			  </p>
 			</div>
 		  </div>
-		  <div class="row justify-content-center text-center">
-			<div class="col-md-2 col-4 mb-4 skill-box">
-			  <img src="images/skills/python.svg" class="img-fluid" alt="Python">
-			  <p>Python</p>
+
+		  <div class="skills-highlights ftco-animate">
+			<div class="skill-highlight-item"><img src="images/skills/java.svg" alt="Java"><span>Java</span></div>
+			<div class="skill-highlight-item"><img src="images/skills/python.svg" alt="Python"><span>Python</span></div>
+			<div class="skill-highlight-item"><img src="images/skills/javascript.svg" alt="JavaScript"><span>JavaScript</span></div>
+			<div class="skill-highlight-item"><img src="images/skills/react.svg" alt="React"><span>React</span></div>
+			<div class="skill-highlight-item"><img src="images/skills/postgresql.svg" alt="PostgreSQL"><span>PostgreSQL</span></div>
+			<div class="skill-highlight-item"><img src="images/skills/aws.png" alt="AWS"><span>AWS</span></div>
+			<div class="skill-highlight-item"><img src="images/skills/docker.svg" alt="Docker"><span>Docker</span></div>
+			<div class="skill-highlight-item"><img src="images/skills/kubernetes.svg" alt="Kubernetes"><span>K8s</span></div>
+			<div class="skill-highlight-item"><img src="images/skills/icons8-apache-kafka-128.svg" alt="Kafka"><span>Kafka</span></div>
+			<div class="skill-highlight-item"><img src="images/skills/git.svg" alt="Git"><span>Git</span></div>
+		  </div>
+
+		  <div class="row mb-4">
+			<div class="col-12 text-center ftco-animate">
+			  <div class="btn-group flex-wrap justify-content-center" role="group" aria-label="Skills category filter">
+				<button class="btn btn-outline-light skill-filter active" data-filter="all">All</button>
+				<button class="btn btn-outline-light skill-filter" data-filter="languages">Languages</button>
+				<button class="btn btn-outline-light skill-filter" data-filter="backend">Backend & APIs</button>
+				<button class="btn btn-outline-light skill-filter" data-filter="frontend">Frontend</button>
+				<button class="btn btn-outline-light skill-filter" data-filter="cloud">Cloud & DevOps</button>
+				<button class="btn btn-outline-light skill-filter" data-filter="databases">Databases</button>
+				<button class="btn btn-outline-light skill-filter" data-filter="messaging">Messaging</button>
+				<button class="btn btn-outline-light skill-filter" data-filter="testing">Testing</button>
+				<button class="btn btn-outline-light skill-filter" data-filter="monitoring">Monitoring</button>
+				<button class="btn btn-outline-light skill-filter" data-filter="ai">AI / ML</button>
+				<button class="btn btn-outline-light skill-filter" data-filter="tools">Tools</button>
+			  </div>
 			</div>
-			<div class="col-md-2 col-4 mb-4 skill-box">
-			  <img src="images/skills/java.svg" class="img-fluid" alt="Java">
-			  <p>Java</p>
+		  </div>
+
+		  <div class="row" id="skills-category-grid">
+			<div class="col-lg-6 mb-4 skill-category-col" data-category="languages">
+			  <div class="skill-category-card">
+				<div class="skill-category-header">
+				  <span class="skill-category-icon ion-ios-code-working"></span>
+				  <h3>Languages</h3>
+				  <span class="skill-count">4</span>
+				</div>
+				<div class="skill-pills">
+				  <span class="skill-pill">Java</span>
+				  <span class="skill-pill">Python</span>
+				  <span class="skill-pill">JavaScript</span>
+				  <span class="skill-pill">SQL</span>
+				</div>
+			  </div>
 			</div>
-			<div class="col-md-2 col-4 mb-4 skill-box">
-			  <img src="images/skills/csharp.svg" class="img-fluid" alt="C#">
-			  <p>C#</p>
+
+			<div class="col-lg-6 mb-4 skill-category-col" data-category="backend">
+			  <div class="skill-category-card">
+				<div class="skill-category-header">
+				  <span class="skill-category-icon ion-ios-cog"></span>
+				  <h3>Backend & APIs</h3>
+				  <span class="skill-count">13</span>
+				</div>
+				<div class="skill-pills">
+				  <span class="skill-pill">Spring Boot</span>
+				  <span class="skill-pill">Spring MVC</span>
+				  <span class="skill-pill">Spring Security</span>
+				  <span class="skill-pill">Spring Data JPA</span>
+				  <span class="skill-pill">Hibernate</span>
+				  <span class="skill-pill">Django</span>
+				  <span class="skill-pill">Django REST Framework</span>
+				  <span class="skill-pill">REST APIs</span>
+				  <span class="skill-pill">Microservices</span>
+				  <span class="skill-pill">API Gateway</span>
+				  <span class="skill-pill">OAuth 2.0</span>
+				  <span class="skill-pill">JWT</span>
+				</div>
+			  </div>
 			</div>
-			<div class="col-md-2 col-4 mb-4 skill-box">
-			  <img src="images/skills/javascript.svg" class="img-fluid" alt="JavaScript">
-			  <p>JavaScript</p>
+
+			<div class="col-lg-6 mb-4 skill-category-col" data-category="frontend">
+			  <div class="skill-category-card">
+				<div class="skill-category-header">
+				  <span class="skill-category-icon ion-ios-desktop"></span>
+				  <h3>Frontend & Visualization</h3>
+				  <span class="skill-count">4</span>
+				</div>
+				<div class="skill-pills">
+				  <span class="skill-pill">React.js</span>
+				  <span class="skill-pill">D3.js</span>
+				  <span class="skill-pill">HTML5</span>
+				  <span class="skill-pill">CSS3</span>
+				</div>
+			  </div>
 			</div>
-			<div class="col-md-2 col-4 mb-4 skill-box">
-			  <img src="images/skills/mongodb.svg" class="img-fluid" alt="MongoDB">
-			  <p>MongoDB</p>
+
+			<div class="col-lg-6 mb-4 skill-category-col" data-category="cloud">
+			  <div class="skill-category-card">
+				<div class="skill-category-header">
+				  <span class="skill-category-icon ion-ios-cloud"></span>
+				  <h3>Cloud & DevOps</h3>
+				  <span class="skill-count">15</span>
+				</div>
+				<div class="skill-pills">
+				  <span class="skill-pill">AWS</span>
+				  <span class="skill-pill">Azure</span>
+				  <span class="skill-pill">AWS ECS</span>
+				  <span class="skill-pill">AWS Lambda</span>
+				  <span class="skill-pill">Amazon SQS</span>
+				  <span class="skill-pill">AWS SES</span>
+				  <span class="skill-pill">CloudWatch</span>
+				  <span class="skill-pill">Docker</span>
+				  <span class="skill-pill">Kubernetes</span>
+				  <span class="skill-pill">Azure Kubernetes Service</span>
+				  <span class="skill-pill">Jenkins</span>
+				  <span class="skill-pill">GitHub Actions</span>
+				  <span class="skill-pill">Maven</span>
+				  <span class="skill-pill">CI/CD</span>
+				  <span class="skill-pill">Blue-Green Deployments</span>
+				</div>
+			  </div>
 			</div>
-			<div class="col-md-2 col-4 mb-4 skill-box">
-			  <img src="images/skills/postgresql.svg" class="img-fluid" alt="PostgreSQL">
-			  <p>PostgreSQL</p>
+
+			<div class="col-lg-6 mb-4 skill-category-col" data-category="databases">
+			  <div class="skill-category-card">
+				<div class="skill-category-header">
+				  <span class="skill-category-icon ion-ios-folder"></span>
+				  <h3>Databases & Caching</h3>
+				  <span class="skill-count">9</span>
+				</div>
+				<div class="skill-pills">
+				  <span class="skill-pill">PostgreSQL</span>
+				  <span class="skill-pill">MySQL</span>
+				  <span class="skill-pill">MongoDB</span>
+				  <span class="skill-pill">Redis</span>
+				  <span class="skill-pill">SQL Server</span>
+				  <span class="skill-pill">Query Optimization</span>
+				  <span class="skill-pill">Indexing</span>
+				  <span class="skill-pill">Partitioning</span>
+				  <span class="skill-pill">Database Performance Tuning</span>
+				</div>
+			  </div>
 			</div>
-			<div class="col-md-2 col-4 mb-4 skill-box">
-			  <img src="images/skills/aws.png" class="img-fluid" alt="AWS">
-			  <p>AWS</p>
+
+			<div class="col-lg-6 mb-4 skill-category-col" data-category="messaging">
+			  <div class="skill-category-card">
+				<div class="skill-category-header">
+				  <span class="skill-category-icon ion-ios-pulse"></span>
+				  <h3>Messaging & Event-Driven Systems</h3>
+				  <span class="skill-count">6</span>
+				</div>
+				<div class="skill-pills">
+				  <span class="skill-pill">Apache Kafka</span>
+				  <span class="skill-pill">RabbitMQ</span>
+				  <span class="skill-pill">Amazon SQS</span>
+				  <span class="skill-pill">Event-Driven Architecture</span>
+				  <span class="skill-pill">Asynchronous Processing</span>
+				  <span class="skill-pill">Distributed Systems</span>
+				</div>
+			  </div>
 			</div>
-			<div class="col-md-2 col-4 mb-4 skill-box">
-			  <img src="images/skills/docker.svg" class="img-fluid" alt="Docker">
-			  <p>Docker</p>
+
+			<div class="col-lg-6 mb-4 skill-category-col" data-category="testing">
+			  <div class="skill-category-card">
+				<div class="skill-category-header">
+				  <span class="skill-category-icon ion-ios-checkmark-circle"></span>
+				  <h3>Testing & Code Quality</h3>
+				  <span class="skill-count">10</span>
+				</div>
+				<div class="skill-pills">
+				  <span class="skill-pill">JUnit</span>
+				  <span class="skill-pill">Mockito</span>
+				  <span class="skill-pill">PyTest</span>
+				  <span class="skill-pill">Postman</span>
+				  <span class="skill-pill">Selenium</span>
+				  <span class="skill-pill">SonarQube</span>
+				  <span class="skill-pill">Unit Testing</span>
+				  <span class="skill-pill">Integration Testing</span>
+				  <span class="skill-pill">Test Automation</span>
+				  <span class="skill-pill">Code Coverage</span>
+				</div>
+			  </div>
 			</div>
-			<div class="col-md-2 col-4 mb-4 skill-box">
-			  <img src="images/skills/kubernetes.svg" class="img-fluid" alt="Kubernetes">
-			  <p>Kubernetes</p>
+
+			<div class="col-lg-6 mb-4 skill-category-col" data-category="monitoring">
+			  <div class="skill-category-card">
+				<div class="skill-category-header">
+				  <span class="skill-category-icon ion-ios-analytics"></span>
+				  <h3>Monitoring & Observability</h3>
+				  <span class="skill-count">7</span>
+				</div>
+				<div class="skill-pills">
+				  <span class="skill-pill">ELK Stack</span>
+				  <span class="skill-pill">AWS CloudWatch</span>
+				  <span class="skill-pill">Azure Monitor</span>
+				  <span class="skill-pill">Logging</span>
+				  <span class="skill-pill">Alerting</span>
+				  <span class="skill-pill">Production Debugging</span>
+				  <span class="skill-pill">Performance Monitoring</span>
+				</div>
+			  </div>
 			</div>
-			<div class="col-md-2 col-4 mb-4 skill-box">
-			  <img src="images/skills/icons8-apache-kafka-128.svg" class="img-fluid" alt="Apache Kafka">
-			  <p>Apache Kafka</p>
+
+			<div class="col-lg-6 mb-4 skill-category-col" data-category="ai">
+			  <div class="skill-category-card">
+				<div class="skill-category-header">
+				  <span class="skill-category-icon ion-ios-bulb"></span>
+				  <h3>AI / ML Integration</h3>
+				  <span class="skill-count">7</span>
+				</div>
+				<div class="skill-pills">
+				  <span class="skill-pill">ML Inference APIs</span>
+				  <span class="skill-pill">Python ML Services</span>
+				  <span class="skill-pill">Feature Payload Assembly</span>
+				  <span class="skill-pill">spaCy</span>
+				  <span class="skill-pill">NLP Pipelines</span>
+				  <span class="skill-pill">Model Integration</span>
+				  <span class="skill-pill">Fallback Logic</span>
+				</div>
+			  </div>
 			</div>
-			<div class="col-md-2 col-4 mb-4 skill-box">
-			  <img src="images/skills/git.svg" class="img-fluid" alt="Git">
-			  <p>Git</p>
-			</div>
-			<div class="col-md-2 col-4 mb-4 skill-box">
-			  <img src="images/skills/github.svg" class="img-fluid" alt="GitHub">
-			  <p>GitHub</p>
-			</div>
-			<div class="col-md-2 col-4 mb-4 skill-box">
-			  <img src="images/skills/Postman.svg" class="img-fluid" alt="Postman">
-			  <p>Postman</p>
-			</div>
-			<div class="col-md-2 col-4 mb-4 skill-box">
-			  <img src="images/skills/linux.svg" class="img-fluid" alt="Linux">
-			  <p>Linux</p>
+
+			<div class="col-lg-6 mb-4 skill-category-col" data-category="tools">
+			  <div class="skill-category-card">
+				<div class="skill-category-header">
+				  <span class="skill-category-icon ion-ios-hammer"></span>
+				  <h3>Tools & Collaboration</h3>
+				  <span class="skill-count">8</span>
+				</div>
+				<div class="skill-pills">
+				  <span class="skill-pill">Git</span>
+				  <span class="skill-pill">GitHub</span>
+				  <span class="skill-pill">GitLab</span>
+				  <span class="skill-pill">Jira</span>
+				  <span class="skill-pill">Agile Scrum</span>
+				  <span class="skill-pill">Kanban</span>
+				  <span class="skill-pill">SDLC</span>
+				  <span class="skill-pill">Linux</span>
+				</div>
+			  </div>
 			</div>
 		  </div>
 	 </div>
    	</section>
 
 
-	<section class="ftco-section contact-section ftco-no-pb" id="education-section">
+	<section class="ftco-section contact-section ftco-no-pb pro-section pro-section-alt" id="education-section">
 		<div class="container">
 			<div class="row justify-content-center mb-5 pb-3">
 			<div class="col-md-7 heading-section text-center ftco-animate">
 			  <h1 class="big big-2">Education</h1>
+			  <span class="section-tag">Background</span>
 			  <h2 class="mb-4">Education</h2>
 			  <br>
 			  <div class="underline"></div>
@@ -567,79 +1852,143 @@ body {
    	</section>
 	
 
-    <section class="ftco-section ftco-no-pb" id="experience-section">
+    <section class="ftco-section ftco-no-pb pro-section" id="experience-section">
     	<div class="container">
-    		<div class="row justify-content-center pb-5">
+    		<div class="row justify-content-center pb-4">
           <div class="col-md-10 heading-section text-center ftco-animate">
           	<h1 class="big big-2">Experience</h1>
+            <span class="section-tag">Career</span>
             <h2 class="mb-4">Experience</h2>
 			<br>
 			<div class="underline"></div>
+			<p class="experience-intro mt-4">
+				Production experience building fraud detection, healthcare telehealth, and client automation platforms across fintech, enterprise, and internal operations domains.
+			</p>
           </div>
         </div>
-	</br>
+
+		<div class="experience-highlights ftco-animate">
+			<div class="exp-highlight-item"><span class="exp-highlight-dot"></span><span>Capital One · Fintech</span></div>
+			<div class="exp-highlight-item"><span class="exp-highlight-dot"></span><span>Accenture · Healthcare</span></div>
+			<div class="exp-highlight-item"><span class="exp-highlight-dot"></span><span>Vision Infotech · Automation</span></div>
+		</div>
 		
 		<div class="row mb-4">
-			<div class="col-12 text-center">
-				<div class="btn-group" role="group" aria-label="Experience filter">
-					<button class="btn btn-outline-light exp-filter active" data-filter="Saayam For All">Saayam For All</button>
-					<button class="btn btn-outline-light exp-filter" data-filter="Reality AI Lab">Reality AI Lab</button>
+			<div class="col-12 text-center ftco-animate">
+				<div class="btn-group flex-wrap justify-content-center" role="group" aria-label="Experience filter">
+					<button class="btn btn-outline-light exp-filter active" data-filter="all">All</button>
+					<button class="btn btn-outline-light exp-filter" data-filter="Capital One">Capital One</button>
 					<button class="btn btn-outline-light exp-filter" data-filter="Accenture">Accenture</button>
+					<button class="btn btn-outline-light exp-filter" data-filter="Vision Infotech">Vision Infotech</button>
 				</div>
 			</div>
 		</div>
 
 		<div class="row" id="experience-cards">
-			<div class="col-md-6 experience-card" data-company="Saayam For All">
-				<div class="resume-wrap ftco-animate skill-box">
-					<span class="date">Software Engineer</span>
-					<h2>Saayam For All</h2>
-					<span class="position d-block">San Jose, CA (Remote)</span>
-					<span class="position d-block">July 2025 - Present</span>
-					<p class="mt-4">
-						<strong>Building reliable services for a distributed platform</strong>
+			<div class="experience-col mb-4" data-company="Capital One">
+				<div class="experience-card-wrap">
+					<div class="experience-card-header">
+						<span class="experience-card-icon ion-ios-briefcase"></span>
+						<div class="experience-card-title">
+							<h2>Capital One</h2>
+							<span class="date">Software Engineer</span>
+						</div>
+						<span class="exp-period-badge">Aug 2024 - Present</span>
+					</div>
+					<div class="experience-meta">
+						<span class="exp-meta-pill">Bellevue, USA</span>
+						<span class="exp-meta-pill">Fintech · Fraud Detection</span>
+					</div>
+					<div class="experience-body">
+						<p><strong>Real-Time Auto Loan Fraud Detection Platform</strong></p>
+						<p>I work as a Software Engineer at Capital One, where I build scalable backend and full-stack systems for a real-time auto loan fraud detection platform. The system processes 1M+ applications daily, detects risky applications in under 2 seconds, and helps fraud teams take faster decisions through automated alerts, ML scoring, and real-time dashboards.</p>
+						<p><strong>Key Impact</strong></p>
 						<ul>
-							<li>Designed backend services and APIs using Python, Java, and FastAPI, improving response efficiency by 30%.</li>
-							<li>Coordinated with distributed contributors to design features, review code, and automate CI/CD workflows, reducing integration issues by 40% and speeding up releases across the platform.</li>
+							<li>Built Java Spring Boot microservices on AWS ECS to process high-volume fraud scoring requests with sub-2-second latency.</li>
+							<li>Integrated Java services with Python-based ML fraud models, reducing false positives by 12%.</li>
+							<li>Designed event-driven alerting workflows using AWS Lambda and Amazon SQS, improving operational efficiency by 30%.</li>
+							<li>Developed real-time dashboards using React.js and D3.js, helping risk teams respond 25% faster.</li>
+							<li>Optimized PostgreSQL performance using indexing, partitioning, and query tuning across large-scale datasets.</li>
+							<li>Improved release reliability with Jenkins, GitHub Actions, blue-green deployments, and automated testing.</li>
 						</ul>
-					</p>
+						<p><strong>Tech Stack</strong></p>
+						<div class="exp-pills">
+							<span class="exp-pill">Java</span><span class="exp-pill">Spring Boot</span><span class="exp-pill">Python</span><span class="exp-pill">REST APIs</span><span class="exp-pill">React.js</span><span class="exp-pill">D3.js</span><span class="exp-pill">PostgreSQL</span><span class="exp-pill">AWS ECS</span><span class="exp-pill">Lambda</span><span class="exp-pill">SQS</span><span class="exp-pill">SES</span><span class="exp-pill">Twilio</span><span class="exp-pill">Jenkins</span><span class="exp-pill">GitHub Actions</span><span class="exp-pill">JUnit</span><span class="exp-pill">Mockito</span>
+						</div>
+					</div>
 				</div>
 			</div>
 
-			<div class="col-md-6 experience-card" data-company="Reality AI Lab" style="display:none;">
-				<div class="resume-wrap ftco-animate skill-box">
-					<span class="date">Software Engineer Intern</span>
-					<h2>Reality AI Lab</h2>
-					<span class="position d-block">New York, NY (Remote)</span>
-					<span class="position d-block">May 2024 - September 2024</span>
-					<p class="mt-4">
-						<strong>AI solutions for real-time clinical analytics</strong>
+			<div class="experience-col mb-4" data-company="Accenture">
+				<div class="experience-card-wrap">
+					<div class="experience-card-header">
+						<span class="experience-card-icon ion-ios-pulse"></span>
+						<div class="experience-card-title">
+							<h2>Accenture</h2>
+							<span class="date">Software Engineer</span>
+						</div>
+						<span class="exp-period-badge">Aug 2021 - Jul 2023</span>
+					</div>
+					<div class="experience-meta">
+						<span class="exp-meta-pill">Pune, India</span>
+						<span class="exp-meta-pill">Healthcare · Telehealth</span>
+					</div>
+					<div class="experience-body">
+						<p><strong>Enterprise Telehealth Platform</strong></p>
+						<p>At Accenture, I worked as a Software Engineer on an enterprise telehealth platform used across multiple hospital networks. The platform supported 50,000+ daily patient interactions, including patient registration, appointment scheduling, EMR integration, teleconsultation workflows, chatbot-based triage, real-time notifications, and secure video consultations.</p>
+						<p>My work focused on building scalable healthcare microservices, improving patient experience, automating manual workflows, and ensuring secure, HIPAA-aligned data handling for clinical and operational teams.</p>
+						<p><strong>Key Impact</strong></p>
 						<ul>
-							<li>Constructed Python FastAPI and Flask microservices for a HIPAA-compliant platform, cutting backend latency by 25%, handling 100+ patient records/day, and improving system reliability for clinical teams.</li>
-							<li>Formulated a validation pipeline with 98% accuracy for 1M+ JSON records/day, improving API data integrity.</li>
-							<li>Refined backend logic for real-time compliance tracking, raising throughput to 75+ events/day, reducing monthly data errors by 15 cases, and improving clinical decision accuracy.</li>
-							<li>Deployed API-driven dashboards using Flask and optimized SQL queries, reducing data retrieval latency by 40%.</li>
+							<li>Developed Java 11 and Spring Boot microservices for patient registration, appointment scheduling, and teleconsultation workflows.</li>
+							<li>Built FHIR R4-compliant REST APIs to integrate hospital EMR systems and reduce manual data reconciliation by 30%.</li>
+							<li>Implemented NLP chatbot pipelines using Python and spaCy for symptom triage, patient intake, and appointment booking, reducing call center volume by 35%.</li>
+							<li>Deployed containerized microservices on Azure Kubernetes Service with auto-scaling, maintaining 99.9% uptime during peak traffic.</li>
+							<li>Integrated Twilio Video APIs with OAuth 2.0 authentication to support 5,000+ concurrent HD teleconsultation sessions.</li>
+							<li>Optimized MySQL queries and indexing strategies, reducing response time from 1.2 seconds to 0.6 seconds.</li>
+							<li>Improved observability using ELK Stack and Azure dashboards, reducing mean-time-to-resolution by 25%.</li>
+							<li>Partnered with UX, clinical, and compliance teams to deliver secure healthcare workflows and improve platform adoption by 25%.</li>
 						</ul>
-					</p>
+						<p><strong>Tech Stack</strong></p>
+						<div class="exp-pills">
+							<span class="exp-pill">Java 11</span><span class="exp-pill">Spring Boot</span><span class="exp-pill">Python</span><span class="exp-pill">spaCy</span><span class="exp-pill">REST APIs</span><span class="exp-pill">FHIR R4</span><span class="exp-pill">MySQL</span><span class="exp-pill">Redis</span><span class="exp-pill">Azure Kubernetes Service</span><span class="exp-pill">Docker</span><span class="exp-pill">Twilio Video API</span><span class="exp-pill">OAuth 2.0</span><span class="exp-pill">ELK Stack</span><span class="exp-pill">Azure Monitor</span><span class="exp-pill">JUnit</span><span class="exp-pill">PyTest</span>
+						</div>
+					</div>
 				</div>
 			</div>
 
-			<div class="col-md-6 experience-card" data-company="Accenture" style="display:none;">
-				<div class="resume-wrap ftco-animate skill-box">
-					<span class="date">Full Stack Engineering Analyst</span>
-					<h2>Accenture</h2>
-					<span class="position d-block">Pune, India</span>
-					<span class="position d-block">August 2021 - July 2023</span>
-					<p class="mt-4">
-						<strong>Scaling cloud microservices for insurance platforms</strong>
+			<div class="experience-col mb-4" data-company="Vision Infotech">
+				<div class="experience-card-wrap">
+					<div class="experience-card-header">
+						<span class="experience-card-icon ion-ios-settings"></span>
+						<div class="experience-card-title">
+							<h2>Vision Infotech</h2>
+							<span class="date">Software Developer</span>
+						</div>
+						<span class="exp-period-badge">Jun 2020 - Jul 2021</span>
+					</div>
+					<div class="experience-meta">
+						<span class="exp-meta-pill">Pune, India</span>
+						<span class="exp-meta-pill">Automation · Client Management</span>
+					</div>
+					<div class="experience-body">
+						<p><strong>Client Management Automation System</strong></p>
+						<p>At Vision Infotech, I worked as a Software Developer on a client management automation platform designed to replace manual lookup, onboarding, and workflow tracking processes. The system supported 2,000+ internal users and helped Admin and Support teams access client records, manage onboarding tasks, validate data, and track workflows in real time.</p>
+						<p>My work focused on backend API development, secure access control, PostgreSQL optimization, automation scripts, and improving data accuracy across client management workflows.</p>
+						<p><strong>Key Impact</strong></p>
 						<ul>
-							<li>Orchestrated and maintained Java Spring Boot microservices on Azure, reliably processing 10,000+ transactions/day and powering core insurance workflows across the client platform.</li>
-							<li>Enhanced policy and claims handling for 5,000+ users by automating REST APIs and optimizing backend data flows.</li>
-							<li>Revamped SQL Server queries and stored procedures, increasing throughput and reducing API latency by 35%, and designed normalized schemas that improved system stability by 20%.</li>
-							<li>Resolved 50+ production incidents through RCA and debugging, improving reliability and reducing repeat failures.</li>
-							<li>Accelerated service quality and deployment speed by engineering 200+ JUnit tests, implementing CI/CD pipelines, and refactoring legacy components into modular Java microservices, reducing release cycles by 30%.</li>
+							<li>Engineered RESTful APIs using Python and Django REST Framework for client profile management, onboarding coordination, and workflow data access.</li>
+							<li>Enabled real-time data retrieval for 2,000+ internal users, eliminating manual lookup processes and improving team productivity.</li>
+							<li>Implemented role-based authentication and permission controls in Django for Admin and Support users, strengthening access governance.</li>
+							<li>Optimized PostgreSQL schemas using indexing and query tuning to support fast retrieval under concurrent read and write workloads.</li>
+							<li>Built Python-based validation pipelines and Django form validators to improve data completeness and accuracy at intake.</li>
+							<li>Reduced manual corrections and accelerated onboarding workflows through automated validation and backend workflow improvements.</li>
+							<li>Collaborated with business and operations teams to convert compliance requirements into scalable backend features.</li>
 						</ul>
-					</p>
+						<p><strong>Tech Stack</strong></p>
+						<div class="exp-pills">
+							<span class="exp-pill">Python</span><span class="exp-pill">Django</span><span class="exp-pill">Django REST Framework</span><span class="exp-pill">PostgreSQL</span><span class="exp-pill">REST APIs</span><span class="exp-pill">JWT Authentication</span><span class="exp-pill">HTML</span><span class="exp-pill">CSS</span><span class="exp-pill">JavaScript</span><span class="exp-pill">Git</span><span class="exp-pill">Linux</span><span class="exp-pill">JSON</span>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -664,112 +2013,147 @@ body {
 
 
    
-    <section class="ftco-section" id="project-section">
+    <section class="ftco-section ftco-no-pb pro-section pro-section-alt" id="project-section">
       <div class="container">
-        <div class="row justify-content-center mb-5 pb-5">
-          <div class="col-md-7 heading-section text-center ftco-animate">
+        <div class="row justify-content-center pb-4">
+          <div class="col-md-10 heading-section text-center ftco-animate">
             <h1 class="big big-2">Projects</h1>
+            <span class="section-tag">Portfolio</span>
             <h2 class="mb-4">Projects</h2>
 			<br>
 			<div class="underline"></div>
-            <!-- <p>Below are the sample Data Analytics projects on SQL, Python, Power BI & ML.</p> -->
+			<p class="projects-intro mt-4">
+				Hands-on projects spanning AI/ML, healthcare analytics, and full-stack applications — combining research-driven models with practical, user-focused engineering.
+			</p>
           </div>
         </div>
-        <div class="row d-flex">
-          <div class="col-md-4 d-flex ftco-animate skill-box">
-          	<div class="blog-entry justify-content-end">
-              <a href="https://github.com/ShriganeshLokapure/FashionGAN_Multimodal_Search" class="block-20 zoom-effect" style="background-image: url('images/proj_1.jpg');">
-              </a>
-              <div class="text mt-3 float-right d-block">
 
-                <h3 class="heading"><a href="https://github.com/ShriganeshLokapure/FashionGAN_Multimodal_Search">FashionGAN Multimodal Search</a></h3>
-                <p>Leveraged deep learning and multimodal inputs to create a smarter fashion search engine powered by Conditional GANs.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate skill-box">
-          	<div class="blog-entry justify-content-end">
-              <a href="https://github.com/ShriganeshLokapure/Heart-Stroke-Prevention" class="block-20 zoom-effect" style="background-image: url('images/proj_2.jpg');">
-              </a>
-              <div class="text mt-3 float-right d-block">
+		<div class="project-highlights ftco-animate">
+			<div class="project-highlight-item"><span class="project-highlight-dot"></span><span>AI / ML</span></div>
+			<div class="project-highlight-item"><span class="project-highlight-dot"></span><span>Healthcare</span></div>
+			<div class="project-highlight-item"><span class="project-highlight-dot"></span><span>Full Stack</span></div>
+		</div>
 
-                <h3 class="heading"><a href="https://github.com/ShriganeshLokapure/Heart-Stroke-Prevention">Heart Stroke Prevention</a></h3>
-                <p>Implemented a holistic approach with thorough feature engineering, and model evaluation for enhanced accuracy.
-				</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate skill-box">
-          	<div class="blog-entry">
-              <a href="https://github.com/ShriganeshLokapure/BalanceBuddy" class="block-20 zoom-effect" style="background-image: url('images/proj_3.jpg');">
-              </a>
-              <div class="text mt-3 float-right d-block">
-
-                <h3 class="heading"><a href="https://github.com/ShriganeshLokapure/BalanceBuddy">BalanceBuddy</a></h3>
-                <p>Integrated user inputs and intelligent response generation to promote healthier, balanced living habits.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-	<br>
-		<!-- added justify-content-center to center align the last two projects -->
-		<!-- <div class="row d-flex justify-content-center">  
-			<div class="col-md-4 d-flex ftco-animate skill-box">
-				<div class="blog-entry justify-content-end">
-				<a href="https://github.com/rishabhnmishra/sales_forecasting/tree/main" class="block-20 zoom-effect" style="background-image: url('images/proj_4.jpg');">
-				</a>
-				<div class="text mt-3 float-right d-block">
-  
-				  <h3 class="heading"><a href="https://github.com/rishabhnmishra/sales_forecasting/tree/main">Sales Forecast- Time Series Forecasting</a></h3>
-				  <p>Used multiple machine learning models to forecast sales (retail store) and performed time series analysis.</p>
+		<div class="row mb-4">
+			<div class="col-12 text-center ftco-animate">
+				<div class="btn-group flex-wrap justify-content-center" role="group" aria-label="Project filter">
+					<button class="btn btn-outline-light project-filter active" data-filter="all">All</button>
+					<button class="btn btn-outline-light project-filter" data-filter="FashionGAN">FashionGAN</button>
+					<button class="btn btn-outline-light project-filter" data-filter="Heart Stroke">Heart Stroke</button>
+					<button class="btn btn-outline-light project-filter" data-filter="BalanceBuddy">BalanceBuddy</button>
 				</div>
-			  </div>
 			</div>
-			<div class="col-md-4 d-flex ftco-animate skill-box">
-				<div class="blog-entry justify-content-end">
-				<a href="https://github.com/rishabhnmishra/customer_segmentation/blob/main/Customer_Segmentation-final.ipynb" class="block-20 zoom-effect" style="background-image: url('images/proj_5.jpg');">
-				</a>
-				<div class="text mt-3 float-right d-block">
-  
-				  <h3 class="heading"><a href="https://github.com/rishabhnmishra/customer_segmentation/blob/main/Customer_Segmentation-final.ipynb">Customer Segmentation using clustering model</a></h3>
-				  <p>Developed a ML model to give various recommendations of financial products &amp; services on target customer groups.</p>
-				</div>
-			  </div>
-			</div>
-		 </div> -->
-	  </div>
-    </section>
+		</div>
 
-	<section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
-      <div class="container">
-		<div class="row d-md-flex align-items-center">
-          
-          </div>
-        </div>
-      </div>
-	
-	  <div class="ftco-section ftco-hireme img margin-top" style="background-image: linear-gradient(135deg, rgba(0, 20, 40, 0.85), rgba(0, 65, 110, 0.78)), url(images/bg_1.jpeg); background-size: cover; background-position: center; box-shadow: 0 20px 60px rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.06);">
-			<!-- <div class="container"> -->
-				<div class="row justify-content-center">
-					<div class="col-md-7 ftco-animate text-center">
-						<h2>More projects on<span> Github  </span> </h2>
-						<div class="heading"> <h4> "Transforming complex problems into sleek, scalable solutions check out my journey through code on GitHub."</h4>
-						<br>
-						<p><a href="https://github.com/ShriganeshLokapure" class="btn btn-primary py-3 px-5">GitHub</a></p>
+		<div class="row" id="project-cards">
+			<div class="project-col mb-4" data-project="FashionGAN">
+				<div class="project-card-wrap">
+					<a href="https://github.com/ShriganeshLokapure/FashionGAN_Multimodal_Search" target="_blank" rel="noopener" class="project-thumb zoom-effect" style="background-image: url('images/proj_1.jpg');" aria-label="FashionGAN project preview"></a>
+					<div class="project-card-inner">
+						<div class="project-card-header">
+							<span class="project-card-icon ion-ios-images"></span>
+							<div class="project-card-title">
+								<h3><a href="https://github.com/ShriganeshLokapure/FashionGAN_Multimodal_Search" target="_blank" rel="noopener">FashionGAN Multimodal Search</a></h3>
+								<span class="project-category">AI / ML · Computer Vision</span>
+							</div>
+							<span class="project-badge">Open Source</span>
+						</div>
+						<div class="project-body">
+							<p>Leveraged deep learning and multimodal inputs to build a smarter fashion search engine powered by Conditional GANs.</p>
+							<p><strong>Highlights</strong></p>
+							<ul>
+								<li>Designed a multimodal search pipeline combining visual and textual fashion attributes.</li>
+								<li>Applied Conditional GANs to improve style-aware image retrieval and generation.</li>
+								<li>Built end-to-end workflows for training, evaluation, and search result ranking.</li>
+							</ul>
+							<p><strong>Tech Stack</strong></p>
+							<div class="exp-pills">
+								<span class="exp-pill">Python</span><span class="exp-pill">PyTorch</span><span class="exp-pill">GANs</span><span class="exp-pill">Deep Learning</span><span class="exp-pill">Multimodal Search</span><span class="exp-pill">Computer Vision</span>
+							</div>
+							<p class="project-github-btn"><a href="https://github.com/ShriganeshLokapure/FashionGAN_Multimodal_Search" target="_blank" rel="noopener" class="btn btn-primary py-2 px-4">View on GitHub</a></p>
 						</div>
 					</div>
 				</div>
-			<!-- </div> -->
+			</div>
+
+			<div class="project-col mb-4" data-project="Heart Stroke">
+				<div class="project-card-wrap">
+					<a href="https://github.com/ShriganeshLokapure/Heart-Stroke-Prevention" target="_blank" rel="noopener" class="project-thumb zoom-effect" style="background-image: url('images/proj_2.jpg');" aria-label="Heart Stroke Prevention project preview"></a>
+					<div class="project-card-inner">
+						<div class="project-card-header">
+							<span class="project-card-icon ion-ios-pulse"></span>
+							<div class="project-card-title">
+								<h3><a href="https://github.com/ShriganeshLokapure/Heart-Stroke-Prevention" target="_blank" rel="noopener">Heart Stroke Prevention</a></h3>
+								<span class="project-category">Healthcare · Machine Learning</span>
+							</div>
+							<span class="project-badge">Open Source</span>
+						</div>
+						<div class="project-body">
+							<p>Implemented a holistic ML approach with thorough feature engineering and model evaluation to improve stroke risk prediction accuracy.</p>
+							<p><strong>Highlights</strong></p>
+							<ul>
+								<li>Engineered clinical and lifestyle features to strengthen predictive signal quality.</li>
+								<li>Compared multiple ML models with cross-validation and performance benchmarking.</li>
+								<li>Focused on interpretable outputs to support preventive healthcare insights.</li>
+							</ul>
+							<p><strong>Tech Stack</strong></p>
+							<div class="exp-pills">
+								<span class="exp-pill">Python</span><span class="exp-pill">Scikit-learn</span><span class="exp-pill">Pandas</span><span class="exp-pill">Feature Engineering</span><span class="exp-pill">Model Evaluation</span><span class="exp-pill">Healthcare Analytics</span>
+							</div>
+							<p class="project-github-btn"><a href="https://github.com/ShriganeshLokapure/Heart-Stroke-Prevention" target="_blank" rel="noopener" class="btn btn-primary py-2 px-4">View on GitHub</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="project-col mb-4" data-project="BalanceBuddy">
+				<div class="project-card-wrap">
+					<a href="https://github.com/ShriganeshLokapure/BalanceBuddy" target="_blank" rel="noopener" class="project-thumb zoom-effect" style="background-image: url('images/proj_3.jpg');" aria-label="BalanceBuddy project preview"></a>
+					<div class="project-card-inner">
+						<div class="project-card-header">
+							<span class="project-card-icon ion-ios-heart"></span>
+							<div class="project-card-title">
+								<h3><a href="https://github.com/ShriganeshLokapure/BalanceBuddy" target="_blank" rel="noopener">BalanceBuddy</a></h3>
+								<span class="project-category">Full Stack · Health & Wellness</span>
+							</div>
+							<span class="project-badge">Open Source</span>
+						</div>
+						<div class="project-body">
+							<p>Integrated user inputs and intelligent response generation to promote healthier, balanced living habits through a practical wellness assistant.</p>
+							<p><strong>Highlights</strong></p>
+							<ul>
+								<li>Built interactive user flows for personalized health and lifestyle recommendations.</li>
+								<li>Implemented intelligent response logic to guide daily balance and habit tracking.</li>
+								<li>Designed a clean application experience focused on usability and engagement.</li>
+							</ul>
+							<p><strong>Tech Stack</strong></p>
+							<div class="exp-pills">
+								<span class="exp-pill">Python</span><span class="exp-pill">JavaScript</span><span class="exp-pill">HTML</span><span class="exp-pill">CSS</span><span class="exp-pill">APIs</span><span class="exp-pill">Health Tech</span>
+							</div>
+							<p class="project-github-btn"><a href="https://github.com/ShriganeshLokapure/BalanceBuddy" target="_blank" rel="noopener" class="btn btn-primary py-2 px-4">View on GitHub</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-	</section>
+
+		<div class="projects-cta ftco-animate">
+			<h3>More projects on <span>GitHub</span></h3>
+			<p>Transforming complex problems into sleek, scalable solutions — explore my full project history and code on GitHub.</p>
+			<a href="https://github.com/ShriganeshLokapure" target="_blank" rel="noopener" class="btn btn-primary py-3 px-5">Visit GitHub</a>
+		</div>
+
+	  </div>
+    </section>
 
 
 
-    <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
+    <section class="ftco-section contact-section ftco-no-pb pro-section" id="contact-section">
       <div class="container">
       	<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section text-center ftco-animate">
-            <h1 class="big big-2">Contact Me</h1>
+            <h1 class="big big-2">Contact</h1>
+            <span class="section-tag">Get in touch</span>
             <h2 class="mb-4">Contact Me</h2>
 			<br>
 			<div class="underline"></div>
@@ -856,14 +2240,21 @@ body {
 
  
 	
-    <footer class="ftco-footer ftco-section">
+    <footer class="ftco-footer ftco-section site-footer-pro">
 		<div class="container">
-		  <div class="row">
-			<div class="col-md-12 text-center">
-  
-			  <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-	Copyright &copy;<script>document.write(new Date().getFullYear());</script>SL | Designed and Developed by Shriganesh Lokapure 
-	<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+		  <div class="row align-items-center">
+			<div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+			  <p class="footer-brand mb-1">Shriganesh Lokapure</p>
+			  <p class="footer-tagline">Software Engineer · Building scalable systems</p>
+			</div>
+			<div class="col-md-6 text-center text-md-right">
+			  <div class="footer-links">
+				<a href="#skills-section">Skills</a>
+				<a href="#experience-section">Experience</a>
+				<a href="#project-section">Projects</a>
+				<a href="https://github.com/ShriganeshLokapure" target="_blank" rel="noopener">GitHub</a>
+			  </div>
+			  <p class="footer-tagline mt-2 mb-0"><small>&copy; <script>document.write(new Date().getFullYear());</script> Shriganesh Lokapure. All rights reserved.</small></p>
 			</div>
 		  </div>
 		</div>
@@ -871,7 +2262,7 @@ body {
 
 
   <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#00c3ff"/></svg></div>
 
 
   <script src="js/jquery.min.js"></script>
@@ -888,18 +2279,172 @@ body {
   <script src="js/scrollax.min.js"></script>
   
   <script>
-    // Experience filter buttons
     document.addEventListener('DOMContentLoaded', () => {
-      const buttons = document.querySelectorAll('.exp-filter');
-      const cards = document.querySelectorAll('.experience-card');
-      buttons.forEach(btn => {
+      // Typing animation
+      const typingEl = document.getElementById('typing-animation');
+      const typingTexts = [
+        'Full Stack Developer',
+        'Backend Engineer',
+        'Cloud & API Specialist'
+      ];
+      let textIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+
+      function typeLoop() {
+        if (!typingEl) return;
+        const current = typingTexts[textIndex];
+        if (!isDeleting) {
+          typingEl.textContent = current.substring(0, charIndex + 1);
+          charIndex++;
+          if (charIndex === current.length) {
+            isDeleting = true;
+            setTimeout(typeLoop, 2200);
+            return;
+          }
+        } else {
+          typingEl.textContent = current.substring(0, charIndex - 1);
+          charIndex--;
+          if (charIndex === 0) {
+            isDeleting = false;
+            textIndex = (textIndex + 1) % typingTexts.length;
+          }
+        }
+        setTimeout(typeLoop, isDeleting ? 40 : 80);
+      }
+      typeLoop();
+
+      // Scroll progress & back to top
+      const scrollProgress = document.getElementById('scroll-progress');
+      const backToTop = document.getElementById('back-to-top');
+      const navbar = document.getElementById('ftco-navbar');
+
+      function onScroll() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        if (scrollProgress) scrollProgress.style.width = progress + '%';
+        if (backToTop) backToTop.classList.toggle('visible', scrollTop > 400);
+        if (navbar) navbar.classList.toggle('scrolled', scrollTop > 50);
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      // Active nav on scroll
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('#ftco-nav .nav-link');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            navLinks.forEach(link => {
+              const href = link.getAttribute('href');
+              link.parentElement.classList.toggle('active', href === '#' + id);
+            });
+          }
+        });
+      }, { rootMargin: '-40% 0px -55% 0px' });
+      sections.forEach(sec => observer.observe(sec));
+
+      // Experience & skills & project filter buttons
+      const expButtons = document.querySelectorAll('.exp-filter');
+      const expCols = document.querySelectorAll('.experience-col');
+      const expGrid = document.getElementById('experience-cards');
+      expButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-          buttons.forEach(b => b.classList.remove('active'));
+          expButtons.forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
           const filter = btn.dataset.filter;
-          cards.forEach(card => {
-            card.style.display = card.dataset.company === filter ? '' : 'none';
+          if (filter === 'all') {
+            expGrid.classList.remove('filtering');
+          } else {
+            expGrid.classList.add('filtering');
+          }
+          let visibleCol = null;
+          expCols.forEach(col => {
+            const show = filter === 'all' || col.dataset.company === filter;
+            if (show) {
+              col.classList.remove('is-hidden');
+              col.style.display = '';
+              if (filter !== 'all') visibleCol = col;
+            } else {
+              col.classList.add('is-hidden');
+              col.style.display = 'none';
+            }
           });
+          if (visibleCol) {
+            setTimeout(() => {
+              visibleCol.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 50);
+          }
+        });
+      });
+
+      const skillButtons = document.querySelectorAll('.skill-filter');
+      const skillCols = document.querySelectorAll('.skill-category-col');
+      const skillGrid = document.getElementById('skills-category-grid');
+      skillButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          skillButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.dataset.filter;
+          if (filter === 'all') {
+            skillGrid.classList.remove('filtering');
+          } else {
+            skillGrid.classList.add('filtering');
+          }
+          let visibleCol = null;
+          skillCols.forEach(col => {
+            const show = filter === 'all' || col.dataset.category === filter;
+            if (show) {
+              col.classList.remove('is-hidden');
+              col.style.display = '';
+              col.classList.add('fadeInUp', 'ftco-animated');
+              col.classList.remove('item-animate');
+              if (filter !== 'all') visibleCol = col;
+            } else {
+              col.classList.add('is-hidden');
+              col.style.display = 'none';
+            }
+          });
+          if (visibleCol) {
+            setTimeout(() => {
+              visibleCol.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 50);
+          }
+        });
+      });
+
+      const projectButtons = document.querySelectorAll('.project-filter');
+      const projectCols = document.querySelectorAll('.project-col');
+      const projectGrid = document.getElementById('project-cards');
+      projectButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          projectButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.dataset.filter;
+          if (filter === 'all') {
+            projectGrid.classList.remove('filtering');
+          } else {
+            projectGrid.classList.add('filtering');
+          }
+          let visibleCol = null;
+          projectCols.forEach(col => {
+            const show = filter === 'all' || col.dataset.project === filter;
+            if (show) {
+              col.classList.remove('is-hidden');
+              col.style.display = '';
+              if (filter !== 'all') visibleCol = col;
+            } else {
+              col.classList.add('is-hidden');
+              col.style.display = 'none';
+            }
+          });
+          if (visibleCol) {
+            setTimeout(() => {
+              visibleCol.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 50);
+          }
         });
       });
     });
